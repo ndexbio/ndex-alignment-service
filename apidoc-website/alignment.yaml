@@ -1,0 +1,44 @@
+swagger: '2.0'
+host: 0.0.0.0:8080
+schemes:
+  - http
+info:
+  version: 1.0.0
+  title: NDEx Alignment Service
+paths:
+  /:
+    get:
+      summary: Show service information.
+      responses:
+        '200':
+          description: Successful response
+  /expand:
+    post:
+      summary: Takes a network (cx1) and expands it with data from another network (cx2).
+      parameters:
+        - name: post_body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CxPair'
+      responses:
+        '200':
+          description: Successful response
+
+definitions:
+  CxPair:
+    type: object
+    properties:
+      cx1:
+        type: array
+        items:
+          type: object
+      cx2:
+        type: array
+        items:
+          type: object
+    example:
+      cx1: [{"nodes": [{"@id": 0, "n": "A"}]}]
+      cx2: [{"nodes": [{"@id": 0, "n": "A"}]}, {"nodes": [{"@id": 1, "n": "B"}]}, {"edges": [{"i": "interacts with", "s": 0, "@id": 1, "t": 1}]}]
+
+

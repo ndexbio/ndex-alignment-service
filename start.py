@@ -1,6 +1,19 @@
-from bottle import hook, response, route, request, run
+from bottle import hook, response, route, request, run, error, HTTPResponse
 import json
 import alignment
+
+@error(405)
+def method_not_allowed(res):
+    if request.method == 'OPTIONS':
+        new_res = HTTPResponse()
+        new_res.set_header('Access-Control-Allow-Origin', '*')
+        new_res.headers['Access-Control-Allow-Methods'] = 'GET, POST, DELETE, PUT, PATCH, OPTIONS'
+        new_res.headers['Access-Control-Allow-Headers'] = 'Content-Type, api_key, Authorization'
+
+        return new_res
+    res.headers['Allow'] += ', OPTIONS'
+    return request.app.default_error_handler(res)
+
 
 @hook('after_request')
 def enable_cors():
