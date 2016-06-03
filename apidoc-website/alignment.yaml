@@ -14,7 +14,7 @@ paths:
           description: Successful response
   /expand:
     post:
-      summary: Takes a network (cx1) and expands it with data from another network (cx2).
+      summary: Takes a network (primary) and expands it with data from another network (secondary).
       parameters:
         - name: post_body
           in: body
@@ -29,16 +29,12 @@ definitions:
   CxPair:
     type: object
     properties:
-      cx1:
+      primary:
         type: array
         items:
           type: object
-      cx2:
+      secondary:
         type: array
         items:
           type: object
-    example:
-      cx1: [{"nodes": [{"@id": 0, "n": "A"}]}]
-      cx2: [{"nodes": [{"@id": 0, "n": "A"}]}, {"nodes": [{"@id": 1, "n": "B"}]}, {"edges": [{"i": "interacts with", "s": 0, "@id": 1, "t": 1}]}]
-
 

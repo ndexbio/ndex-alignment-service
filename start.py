@@ -28,8 +28,8 @@ def get_status():
 @route('/expand', method='POST')
 def expand():
     cx_dict = json.load( request.body)
-    cx1 = cx_dict['cx1']
-    cx2 = cx_dict['cx2']
+    cx1 = cx_dict['primary']
+    cx2 = cx_dict['secondary']
     return json.dumps( alignment.expand(cx1, cx2) )
 
 if __name__ == '__main__':
