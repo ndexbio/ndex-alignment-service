@@ -3,7 +3,7 @@ host: 0.0.0.0:8080
 schemes:
   - http
 info:
-  version: 1.0.0
+  version: 1.0.1
   title: NDEx Alignment Service
 paths:
   /:

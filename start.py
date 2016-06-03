@@ -21,7 +21,7 @@ def enable_cors():
 
 @route('/')
 def get_status():
-    version = '1.0.0'
+    version = '1.0.1'
     status = {'status': 'available', 'version': version, 'service': 'alignment' }
     return status
 
