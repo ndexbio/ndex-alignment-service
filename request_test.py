@@ -8,7 +8,7 @@ secondary = NdexGraph(server='http://public.ndexbio.org', uuid='19f2fc35-1235-11
 primary.show_stats()
 secondary.show_stats()
 
-payload = {'primary': primary.to_CX(), 'secondary': secondary.to_CX()}
+payload = {'primary': primary.to_cx(), 'secondary': secondary.to_cx()}
 
 r = requests.post('http://0.0.0.0:8080/expand', data=json.dumps(payload))
 

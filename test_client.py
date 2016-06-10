@@ -17,7 +17,7 @@ for node_id, merge_id in noi_node_id_to_gene_map.iteritems():
 for node_id, merge_id in rn_node_id_to_gene_map.iteritems():
     rn.set_node_attribute(node_id, 'expand_id', merge_id)
 
-noi.expand(rn, attribute='expand_id')
+noi.expand(rn, attribute_key='expand_id')
 noi.show_stats()
 
 noi.set_name("Ravasi expanded with bindingdb all compounds mouse")

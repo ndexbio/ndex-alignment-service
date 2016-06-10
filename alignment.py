@@ -61,10 +61,10 @@ def expand(primaryCX, secondaryCX):
     for node_id, merge_id in secondary_node_id_to_gene_map.iteritems():
         secondary.set_node_attribute(node_id, 'expand_id', merge_id)
 
-    primary.expand(secondary, attribute='expand_id')
+    primary.expand(secondary, attribute_key='expand_id')
     primary.show_stats()
 
-    return primary.to_CX()
+    return primary.to_cx()
 
 if __name__ == "__main__":
     pass

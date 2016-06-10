@@ -10,7 +10,7 @@ def update_network(thread_name, G, network_id):
     G.set_name('RAS: ' + network_id)
     for i in range(1000):
         # print i, thread_name, network_id
-        ndex_dev.update_cx_network(G.to_CX_stream(), network_id)
+        ndex_dev.update_cx_network(G.to_cx_stream(), network_id)
         # print 'done with', i, thread_name, network_id
 
 def get_edges(thread_name, G, network_id):
@@ -34,9 +34,9 @@ try:
     thread.start_new_thread(update_network, ('thread-2', noi, '4aacfe71-278a-11e6-8cb7-06832d634f41'))
     thread.start_new_thread(update_network, ('thread-3', noi, '51553f82-278a-11e6-8cb7-06832d634f41'))
 
-    thread.start_new_thread(get_edges, ('thread-4', noi, '4499f87f-278a-11e6-8cb7-06832d634f41'))
-    thread.start_new_thread(get_edges, ('thread-5', noi, '4aacfe71-278a-11e6-8cb7-06832d634f41'))
-    thread.start_new_thread(get_edges, ('thread-6', noi, '51553f82-278a-11e6-8cb7-06832d634f41'))
+    # thread.start_new_thread(get_edges, ('thread-4', noi, '4499f87f-278a-11e6-8cb7-06832d634f41'))
+    # thread.start_new_thread(get_edges, ('thread-5', noi, '4aacfe71-278a-11e6-8cb7-06832d634f41'))
+    # thread.start_new_thread(get_edges, ('thread-6', noi, '51553f82-278a-11e6-8cb7-06832d634f41'))
 except:
     print 'Error: Unable to launch threads'
 

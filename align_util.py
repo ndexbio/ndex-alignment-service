@@ -2,7 +2,7 @@ import idmapper
 
 
 def create_node_id_to_gene_map(G):
-    ids = G.get_candidate_ids()
+    ids = G._get_candidate_ids()
     genes = idmapper.get_gene_id_mapping(ids)
     input_to_gene_map = make_input_to_gene_map(genes)
     return make_node_id_to_gene_map(G, input_to_gene_map)
